@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+h1{
+ padding-left:3.5em;
+}
+
+</style>
+<div class="container-fluid">
+  <div class="row-fluid">
+	<h1>Shop From your Choices of Stores </h1>
+	<div class="span1"></div>
+	<div class="span10" id="content">
+		<div class="row-fluid">
+			<div class="span3">
+				 <!-- block -->
+                            <a href="/flipkart/">
+		<img class="img-circle" data-src="holder.js/140x140" src="{{ STATIC_URL }}sponsers/Flipkart.jpg" href="www.flipkart.com" /></a>
+                            <!-- /block -->
+			</div>
+			<div class="span3">
+                            <!-- block -->
+                            <img src="{{ STATIC_URL }}sponsers/infibeam.jpg" href="www.infibeam.com"/>
+                            <!-- /block -->
+                        </div>
+			<div class="span3">
+                            <!-- block -->
+                            <img src="{{ STATIC_URL }}sponsers/tradus.jpg" href="www.tradus.com"/>
+                            <!-- /block -->
+                        </div>
+			<div class="span3">
+                            <!-- block -->
+                            <a href="/flipkart/">
+		<img class="img-circle" data-src="holder.js/140x140" src="{{ STATIC_URL }}sponsers/Flipkart.jpg" href="www.flipkart.com" /></a>
+                            <!-- /block -->
+                        </div>
+			
+		</div>
+	</div>
+  </div>
+
+</div>
+
+{% endblock %}

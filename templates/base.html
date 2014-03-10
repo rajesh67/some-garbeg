@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}RollPay{% endblock %}</title>
+     
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap.css">    
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap-responsive.css">
+    <style>
+      body {
+        padding-top: 3.5em;
+        padding-left: 1em;
+        padding-right: 1em;
+      }
+
+    </style>
+</head>
+<body>
+<!-- Navbar -->
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="/">RollPay</a>
+      <div class="nav-collapse">
+        <ul class="nav pull-right"> 
+            <li>
+                {% if user.is_authenticated %}
+             
+                    	 <p /><p /><strong>Welcome {{ user.username }}! - <a href="/account/edit/">Account Settings</a> ! -<a href="/logout">Log Out</a> </strong>
+
+		
+                {% else %}
+                    <form action="/login/" method="post" class="navbar-form pull-right">
+                    {% csrf_token %}
+                    <input type="text" name="username" class="input-small" placeholder="Username" /> &nbsp;
+                    <input type="password" name="pass" class="input-small" placeholder="Password" /> &nbsp;
+                    <input type="submit" value="Login!" class="btn-medium btn-primary" />
+                    </form>
+                {% endif %}
+            </li>
+        </ul>
+        {% if not user.username %}
+        <ul class="nav pull-right">
+            <p /><p /> <strong><a href="/register/">Sign up</a> or Login:</strong>
+        </ul>
+        {% endif %}
+	<ul class="nav navbar-nav navbar-right">
+		<li>
+			{% if user.is_authenticated %}
+				  
+				<p /><p /><strong><a href="/myorder/">MyOrders</a> <a href="/dashboard/">DashBoard</a></strong>
+				 
+			{% endif %}
+		</li>
+	
+	</ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
+<!-- Navbar -->
+
+ 
+
+<div class="container-fluid">
+    {% block content %} {% endblock %}
+</div>
+
+<script src="{{ STATIC_URL }}js/jquery.js"></script>
+<script src="{{ STATIC_URL }}js/bootstrap.js"></script>
+<script src="{{ STATIC_URL }}js/bootstrap-alert.js"></script>
+<script src="{{ STATIC_URL }}js/bootstrap-tooltip.js"></script>
+<script type="text/javascript">
+    $("[rel=tooltip]").tooltip();
+    $("a[rel=popover]")
+      .popover()
+      .click(function(e) {
+        e.preventDefault()
+      })
+</script>
+
+</body>
+</html>

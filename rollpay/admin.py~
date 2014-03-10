@@ -1,0 +1,17 @@
+from django.contrib import admin
+from .models import *
+# Register your models here.
+
+
+class UserProfileAdmin(admin.Admin):
+	pass
+
+class OrderAdmin(admin.Admin):
+	pass
+
+class MerchantAdmin(admin.Admin):
+	pass
+
+admin.site.register(UserProfile,UserProfileAdmin)
+admin.site.register(Merchant,MerchantAdmin)
+admin.site.register(Order,OrderAdmin)

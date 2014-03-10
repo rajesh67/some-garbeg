@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="table-responsive table-bordered">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>OrderNo.</th>
+            <th>Merchant</th>
+            <th>Order Date</th>
+            <th>Item Link</th>
+            <th>TrackLink</th>
+            <th>Status</th>
+            <th>Rs.</th>
+	    <th>Rate</th>
+	    <th>CashBack</th>
+	    <th>Verification</th>
+          </tr>
+        </thead>
+	{% for order in orders %}
+        <tbody>
+          <tr>
+            <td><a href="/myorder/{{ order.number }}/">{{ order.number }}</a></td>
+            <td>{{ order.merchant.name }}</td>
+            <td>{{ order.created_on }}</td>
+            <td><a href="{{ order.item_link }}">Item_Link</a></td>
+	    {% if order.track_link %}
+            <td><a href="{{ order.track_link }}">Track_Link</a></td>
+	    {% else %}
+	    <td>
+		 
+			<button class="btn btn-primary"><a href="/myorder/{{ order.number }}">Click Here Update</a></button>	 
+		  
+	    </td>{% endif %}
+            <td>{{ order.get_status_display }}</td>
+            <td>{{ order.ammount }}</td>
+	    <td>{{ order.rate }}</td>
+		<td>{{ order.cashback }}</td>
+		{% if order.verification %}
+		<td><a href="">VERIFIED</a></td>
+		{% else %}
+		<td><a href="">Update Trak Link</a></td>
+		{% endif %}
+          </tr>
+        </tbody>
+	{% endfor %}
+      </table>
+    </div><!-- /.table-responsive -->
+
+
+{% endblock %}
