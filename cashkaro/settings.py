@@ -76,14 +76,14 @@ WSGI_APPLICATION = 'cashkaro.wsgi.application'
  
 
 DATABASES = {
-    'default': {
-        'ENGINE':'django.db.backends.postgresql_psycopg2',
-        'NAME': 'mydb',
-        'USER': 'myuser',
-        'PASSWORD': '11cs30025',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
+  'default': {
+    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'NAME': 'd8e8bt0ptutmsv',
+    'HOST': 'ec2-54-204-45-196.compute-1.amazonaws.com',
+    'PORT': 5432,
+    'USER': 'dflvomyowyzksg',
+    'PASSWORD': '8i8g5kOGAi3k9hhrQXRiyQB5Za'
+  }
 }
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
