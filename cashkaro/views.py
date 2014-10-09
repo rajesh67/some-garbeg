@@ -10,7 +10,7 @@ from rollpay.models import *
 
 def home(request):
 	user=request.user
-	return render_to_response('rollpay/home1.html',{'user':user},context_instance=RequestContext(request),)
+	return render_to_response('rollpay/home.html',{'user':user},context_instance=RequestContext(request),)
 #------------------------------------account_edit---------------------------------------
 
 def account_edit(request):
